@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translated</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .star-rating {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 2rem;
+            color: #ccc;
+        }
+        .star-rating input {
+            display: none;
+        }
+        .star-rating label {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .star-rating input:checked ~ label,
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            color: #f90;
+        }
+        .bg-dark-blue {
+            background-color: #007BFF; /* Blue background */
+            color: white; /* Change text color to white for contrast */
+            padding: 0.5rem 1rem; /* Add some padding around the text */
+            border-radius: 5px; /* Optional: adds rounded corners to the background */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center py-10">
+    <div class="w-full max-w-2xl bg-white p-8 shadow-lg rounded">
+        <!-- Logo and Header -->
+        <div class="flex items-center mb-8" style="width: 100%; justify-content: space-between;">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Apollo Team Logo" class="h-28 mr-4">
+            <div class="bg-dark-blue">
+                <h1 class="text-2xl font-bold">Translate</h1>
+            </div>
+        </div>
+
+        <!-- translate Content -->
+        <form action="{{ url_for('translated') }}" method="POST">
+            <div class="mb-4">
+                <h4 class="font-semibold">Original Text</h4>
+                <div class="w-full h-64 p-4 border border-gray-300 rounded-lg overflow-auto">{{ original_text }}</div>
+                <input type="hidden" name="original_text" value="{{ original_text }}">
+            </div>
+            <div class="mb-4">
+                <h4 class="font-semibold">Translate</h4>
+                <p class="bg-gray-100 p-4 rounded">{{ translate_text }}</p>
+                <input type="hidden" name="translate_text" value="{{ translate_text }}">
+            </div>
+            <div class="mb-4">
+                <label for="rating" class="font-semibold">Rate the Translate (1-5):</label>
+                <div class="star-rating">
+                    <input id="star5" name="rating" type="radio" value="5" class="hidden" />
+                    <label for="star5">★</label>
+                    <input id="star4" name="rating" type="radio" value="4" class="hidden" />
+                    <label for="star4">★</label>
+                    <input id="star3" name="rating" type="radio" value="3" class="hidden" />
+                    <label for="star3">★</label>
+                    <input id="star2" name="rating" type="radio" value="2" class="hidden" />
+                    <label for="star2">★</label>
+                    <input id="star1" name="rating" type="radio" value="1" class="hidden" />
+                    <label for="star1">★</label>
+                </div>
+            </div>
+            <button type="submit" class="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded">OK</button>
+        </form>
+
+        <!-- Footer -->
+        <footer class="mt-10 text-center text-gray-500">
+            <p>&copy; 2024 Machine Translate. All rights reserved.</p>
+            <p>Powered by <span class="font-semibold text-blue-500">Apollo Team</span></p>
+        </footer>
+    </div>
+</body>
+</html>

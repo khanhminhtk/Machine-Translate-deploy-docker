@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Translate</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .bg-dark-blue { background-color: #007BFF; }
+        .bg-light-blue { background-color: #00CFFF; }
+        .bg-lighter-blue { background-color: #B2EBF2; }
+        .bg-light-beige { background-color: #FFF7E1; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center py-10">
+    <div class="w-full max-w-4xl bg-white p-10 shadow-lg rounded-lg">
+        <!-- Logo and Header -->
+        <div class="flex justify-between items-center mb-8">
+            <div class="flex items-center">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Apollo Team Logo" class="h-28 mr-4">
+                <div>
+                    <h2 class="text-2xl font-bold text-black">Apollo Team</h2>
+                </div>
+            </div>
+            <div class="text-right">
+                <h1 class="text-4xl font-extrabold text-black">Machine Translate</h1>
+                <p class="mt-2 text-black">Easily translate from your text</p>
+            </div>
+        </div>
+
+        <!-- Main Form -->
+        <main>
+            <form method="POST">
+                <div class="mb-6">
+                    <label for="text" class="block text-lg font-medium text-black mb-2">Enter your text:</label>
+                    <textarea id="text" name="text" class="w-full h-64 p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-dark-blue resize-none" placeholder="Type or paste your text here..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-dark-blue hover:bg-light-blue text-white font-bold rounded-lg transition duration-200">Translate</button>
+            </form>
+        </main>
+
+        <!-- Features Section -->
+        <section class="features-section mt-10 bg-lighter-blue p-6 rounded-lg">
+            <h2 class="text-2xl font-bold mb-4 text-black">Why use our translate?</h2>
+            <ul class="list-disc list-inside space-y-2 text-black">
+                <li>Translate text quickly and accurately</li>
+                <li>User-friendly and intuitive interface</li>
+                <li>Preserves the main points and key information</li>
+                <li>Free to use with no sign-up required</li>
+            </ul>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-10 text-center text-gray-500">
+            <p>&copy; 2024 Machine Translate. All rights reserved.</p>
+            <p>Powered by <span class="font-semibold text-blue-500">Apollo Team</span></p>
+        </footer>
+    </div>
+</body>
+</html>
