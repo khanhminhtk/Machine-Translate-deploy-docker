@@ -4,7 +4,8 @@ Thực hiện finetuining với hai khối encode và decode đồng thời đi�
 Thực hiện deploy project lên flask và đóng gói docker để dễ dàng sử dụng
 
 # Kết quả thu được
-Mô hình có chỉ số bleu được đo bởi phương pháp đánh sacrebleu là 20.32
+Mô hình có chỉ số bleu được đo bởi phương pháp đánh sacrebleu là 20.32.
+
 Giao diện người dùng sau khi deploy lên docker:
 
 Trang input
